@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>特斯拉机器人 · 每日简报</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">⚡</span>
+      <div>
+        <h1>特斯拉机器人 · 每日简报</h1>
+        <p class="sub">Tesla Optimus 动态追踪 · 由每日自动任务生成</p>
+      </div>
+    </div>
+    <div class="updated" id="updated"></div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <button class="latest-btn" id="latestBtn">★ 最新一期</button>
+      <div class="side-title">历史简报</div>
+      <div id="dateList" class="date-list"></div>
+    </aside>
+
+    <main class="content" id="content">
+      <div class="loading">加载中…</div>
+    </main>
+  </div>
+
+  <footer class="footer">
+    数据来自公开网络搜索，仅供了解与参考，不构成投资建议。
+  </footer>
+
+  <script src="marked.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
