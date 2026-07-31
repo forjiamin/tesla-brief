@@ -1,0 +1,175 @@
+:root {
+  --bg: #f5f7fa;
+  --panel: #ffffff;
+  --text: #1f2329;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --accent: #e82127;       /* Tesla red */
+  --accent-soft: #fdecec;
+  --link: #2563eb;
+  --shadow: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+/* Top bar */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.brand { display: flex; align-items: center; gap: 12px; }
+.logo {
+  font-size: 26px;
+  width: 44px; height: 44px;
+  display: grid; place-items: center;
+  background: var(--accent-soft);
+  border-radius: 12px;
+}
+.topbar h1 { font-size: 18px; margin: 0; font-weight: 700; }
+.sub { margin: 2px 0 0; font-size: 12px; color: var(--muted); }
+.updated { font-size: 12px; color: var(--muted); }
+
+/* Layout */
+.layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 20px;
+  max-width: 1180px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+/* Sidebar */
+.sidebar {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px;
+  height: fit-content;
+  position: sticky;
+  top: 88px;
+}
+.latest-btn {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: .15s;
+}
+.latest-btn:hover { filter: brightness(.98); }
+.latest-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+.side-title {
+  margin: 16px 4px 8px;
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: .04em;
+}
+.date-list { display: flex; flex-direction: column; gap: 4px; }
+.date-item {
+  text-align: left;
+  border: none;
+  background: transparent;
+  padding: 9px 10px;
+  border-radius: 9px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  transition: .15s;
+}
+.date-item:hover { background: #f0f2f5; }
+.date-item.active { background: #eef2ff; }
+.date-item .d { font-weight: 600; font-size: 13px; }
+.date-item .t { font-size: 11px; color: var(--muted); }
+
+/* Content */
+.content {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 28px 32px;
+  min-height: 60vh;
+  box-shadow: var(--shadow);
+}
+.content h1 { font-size: 22px; margin: 0 0 4px; }
+.content h2 {
+  font-size: 18px;
+  margin: 28px 0 10px;
+  padding-left: 10px;
+  border-left: 4px solid var(--accent);
+}
+.content h3 { font-size: 15px; margin: 18px 0 6px; color: #374151; }
+.content p { margin: 8px 0; }
+.content ul, .content ol { padding-left: 22px; margin: 8px 0; }
+.content li { margin: 4px 0; }
+.content blockquote {
+  margin: 12px 0;
+  padding: 10px 14px;
+  background: #f8fafc;
+  border-left: 4px solid #cbd5e1;
+  color: #475569;
+  border-radius: 0 8px 8px 0;
+}
+.content a { color: var(--link); text-decoration: none; }
+.content a:hover { text-decoration: underline; }
+.content table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 14px 0;
+  font-size: 13px;
+}
+.content th, .content td {
+  border: 1px solid var(--border);
+  padding: 8px 10px;
+  text-align: left;
+}
+.content th { background: #f3f4f6; font-weight: 600; }
+.content tr:nth-child(even) td { background: #fafafa; }
+.content code {
+  background: #f1f3f5;
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+.content hr { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
+
+.loading, .error {
+  color: var(--muted);
+  padding: 40px 0;
+  text-align: center;
+}
+.error { color: #b91c1c; }
+
+/* Footer */
+.footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+  padding: 16px;
+}
+
+@media (max-width: 720px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; }
+}
